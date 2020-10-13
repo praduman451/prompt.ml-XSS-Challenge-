@@ -1,5 +1,20 @@
 Level 4
 
+function escape(input) {
+    // make sure the script belongs to own site
+    // sample script: http://prompt.ml/js/test.js
+    if (/^(?:https?:)?\/\/prompt\.ml\//i.test(decodeURIComponent(input))) {
+        var script = document.createElement('script');
+        script.src = input;
+        return script.outerHTML;
+    } else {
+        return 'Invalid resource.';
+    }
+} 
 
-Under construction 
 
+Solution:-  if you look on line number 4 then it's saying "Script belongs to own site" and just under this line a sample script is given.
+It means we have to use this code or can upload the own html script. Because of not having option of uploading anything we can use the same script for payload.
+
+
+Ans:           http://prompt.ml/js/test.js                     //After using this paload you will get something like "test.js is loaded" that means you have cleared this level.
