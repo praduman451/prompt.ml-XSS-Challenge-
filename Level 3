@@ -1,0 +1,15 @@
+Level 3:
+
+function escape(input) {
+    // filter potential comment end delimiters
+    input = input.replace(/->/g, '_');
+
+    // comment the input to avoid script execution
+    return '<!-- ' + input + ' -->';
+}
+
+Solution:-  
+
+given that, I need to comment the input so i will use "--!>"
+
+Ans-   --!<sript>prompt(1)</script>
