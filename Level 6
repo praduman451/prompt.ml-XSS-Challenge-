@@ -1,0 +1,39 @@
+Level 6
+
+function escape(input) {
+    // let's do a post redirection
+    try {
+        // pass in formURL#formDataJSON
+        // e.g. http://httpbin.org/post#{"name":"Matt"}
+        var segments = input.split('#');
+        var formURL = segments[0];
+        var formData = JSON.parse(segments[1]);
+
+        var form = document.createElement('form');
+        form.action = formURL;
+        form.method = 'post';
+
+        for (var i in formData) {
+            var input = form.appendChild(document.createElement('input'));
+            input.name = i;
+            input.setAttribute('value', formData[i]);
+        }
+
+        return form.outerHTML + '                         \n\
+<script>                                                  \n\
+    // forbid javascript: or vbscript: and data: stuff    \n\
+    if (!/script:|data:/i.test(document.forms[0].action)) \n\
+        document.forms[0].submit();                       \n\
+    else                                                  \n\
+        document.write("Action forbidden.")               \n\
+</script>                                                 \n\
+        ';
+    } catch (e) {
+        return 'Invalid form data.';
+    }
+} 
+
+
+Solution:-   In this regular expression in place tries forbid the use of the strings javascript, vbscript as well as data URIs to prevent us to executing any JavaScript.
+
+Ans-     javascript:prompt(1)#{"action":1}
